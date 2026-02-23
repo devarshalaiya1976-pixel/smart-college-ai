@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Smart College AI</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #050b16, #0a1f33);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Segoe UI;
+            color: white;
+        }
+
+        .app {
+            width: 360px;
+            height: 620px;
+            backdrop-filter: blur(20px);
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 25px;
+            border: 1px solid rgba(0, 255, 255, .4);
+            box-shadow: 0 0 40px rgba(0, 255, 255, .4);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .header {
+            padding: 18px;
+            text-align: center;
+            font-size: 20px;
+            font-weight: 600;
+            color: #00ffff;
+            border-bottom: 1px solid rgba(0, 255, 255, .4);
+        }
+
+        .chat {
+            flex: 1;
+            padding: 15px;
+            overflow-y: auto;
+        }
+
+        .user {
+            align-self: flex-end;
+            background: #1f6fff;
+            padding: 10px 14px;
+            border-radius: 15px;
+            margin: 8px;
+            max-width: 75%;
+        }
+
+        .bot {
+            align-self: flex-start;
+            background: rgba(0, 255, 255, .15);
+            padding: 10px 14px;
+            border-radius: 15px;
+            margin: 8px;
+            border: 1px solid cyan;
+            box-shadow: 0 0 10px cyan;
+        }
+
+        form {
+            display: flex;
+            padding: 12px;
+            border-top: 1px solid rgba(0, 255, 255, .4);
+        }
+
+        input {
+            flex: 1;
+            background: rgba(255, 255, 255, .08);
+            border: 1px solid cyan;
+            color: white;
+            padding: 10px;
+            border-radius: 15px;
+            outline: none;
+        }
+
+        button {
+            background: cyan;
+            border: none;
+            margin-left: 10px;
+            padding: 10px 16px;
+            border-radius: 15px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        button:hover {
+            box-shadow: 0 0 15px cyan;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="app">
+
+        <div class="header">✨ Smart College AI</div>
+
+        <div class="chat">
+            {% if question %}
+            <div class="user">{{ question }}</div>
+            {% endif %}
+
+            {% if reply %}
+            <div class="bot">{{ reply }}</div>
+            {% endif %}
+        </div>
+
+        <form method="POST">
+            <input name="question" placeholder="Ask something smart..." required>
+            <button>Send</button>
+        </form>
+
+    </div>
+
+</body>
+
+</html>
